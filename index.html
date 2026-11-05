@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MANTA-1 — Tidal Works</title>
+<meta name="description" content="A fictional concept site: MANTA-1, a solar glider that skims plastic from the sea surface.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500..900&family=Instrument+Sans:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="is-loading">
+
+<canvas id="gl" class="on-top" aria-hidden="true"></canvas>
+
+<!-- The 3D model is drawn over this screen while it scans itself into existence -->
+<div id="loader">
+  <div class="ld-panel ld-panel--top"></div>
+  <div class="ld-panel ld-panel--bot"></div>
+  <div class="ld-content">
+    <div class="ld-bar"><span>Tidal Works</span><span>MANTA-1 / concept, rev. 01</span></div>
+    <div class="ld-foot">
+      <div class="ld-line"><i id="loaderFill"></i></div>
+      <div class="ld-bar ld-bar--bot">
+        <span id="loaderHint">calibrating sonar</span>
+        <span class="ld-count"><b id="loaderPct">000</b>%</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<header class="nav">
+  <a class="nav__brand" href="#top">Tidal Works</a>
+  <nav class="nav__links">
+    <a href="#story">Mission</a>
+    <a href="#story">Technology</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <a class="nav__cta" href="#contact">Request a briefing &rarr;</a>
+</header>
+
+<aside class="hud" aria-hidden="true">
+  <div><span>solar array</span><b id="hudSolar">calibrated</b></div>
+  <div><span>surface sonar</span><b id="hudSonar">online</b></div>
+  <div><span>debris net</span><b id="hudNet">stowed</b></div>
+  <div><span>glider</span><b id="hudGlider">on station</b></div>
+</aside>
+
+<div class="rail" id="rail" aria-hidden="true">
+  <span id="railIdx">01 / 07</span>
+  <span class="rail__bar"><i id="railFill"></i></span>
+  <span id="railLabel">the problem</span>
+</div>
+
+<main id="top">
+
+  <section class="sec sec--hero">
+    <div class="hero__meta">
+      <span>01</span>
+      <span>Surface debris glider</span>
+      <span>Concept / Gulf of Oman</span>
+    </div>
+
+    <h1 class="hero__title" aria-label="A truck of plastic enters the sea every minute.">
+      <span class="w" style="--i:0"><span>A</span></span>
+      <span class="w" style="--i:1"><span>truck</span></span>
+      <span class="w" style="--i:2"><span>of</span></span>
+      <span class="w" style="--i:3"><span>plastic</span></span>
+      <span class="w" style="--i:4"><span>enters</span></span>
+      <span class="w" style="--i:5"><span>the</span></span>
+      <span class="w" style="--i:6"><span>sea</span></span>
+      <span class="w" style="--i:7"><span class="acc">every</span></span>
+      <span class="w" style="--i:8"><span class="acc">minute.</span></span>
+    </h1>
+
+    <div class="hero__row reveal">
+      <p class="hero__lead">Rivers carry it out. Nobody is on the water to catch it. Manta is a solar-powered glider that skims the surface, day and night.</p>
+      <div class="hero__links">
+        <a class="link" href="#contact">Request a briefing &rarr;</a>
+        <a class="link link--dim" href="#story">How it works &darr;</a>
+      </div>
+    </div>
+
+    <dl class="specs reveal">
+      <div><dt>Wingspan</dt><dd>3.8 <small>m</small></dd></div>
+      <div><dt>Endurance</dt><dd>24 <small>h on solar</small></dd></div>
+      <div><dt>Debris per sortie</dt><dd>180 <small>kg</small></dd></div>
+    </dl>
+  </section>
+
+  <!-- Pinned scroll story. The stage stays put while the chapters play; the last chapter is the CTA -->
+  <section class="story" id="story">
+    <div class="stage">
+
+      <article class="chap chap--left chap--problem" data-label="the problem">
+        <p class="label"><b>02</b>The problem</p>
+        <p class="stat__pre">Between every truckload of plastic</p>
+        <div class="stat__num"><span id="countNum">0</span><small>seconds</small></div>
+        <div class="ticks" id="ticks" aria-hidden="true"></div>
+        <p class="note">That is the gap. Cleanups on the shore cannot keep pace with a sea that never stops filling.</p>
+        <p class="fine">One truck per minute is a widely quoted estimate for plastic entering the ocean.</p>
+      </article>
+
+      <article class="chap chap--top" data-label="meet manta">
+        <p class="label"><b>03</b>Tidal Works / marine robotics</p>
+        <h2>Meet Manta.</h2>
+        <p class="lead">A solar glider that skims the surface and never stops.</p>
+        <div class="tag tag--a"><i></i><span>solar array</span></div>
+        <div class="tag tag--b"><i></i><span>debris net</span></div>
+        <div class="tag tag--c"><i></i><span>sonar tail</span></div>
+        <p class="caption">Fig. 02 &mdash; anatomy, wingspan 3.8 m</p>
+      </article>
+
+      <article class="chap chap--right" data-label="detect">
+        <p class="label"><b>04</b>Step 1 of 4</p>
+        <h2>Detect.</h2>
+        <p class="lead">Sonar sweeps the surface and tags every piece of floating debris.</p>
+      </article>
+
+      <article class="chap chap--top" data-label="skim">
+        <p class="label"><b>05</b>Step 2 of 4</p>
+        <h2>Skim.</h2>
+        <p class="lead">Wings low, net open. Manta pulls the plastic in without ever slowing down.</p>
+      </article>
+
+      <article class="chap chap--left" data-label="run on sun">
+        <p class="label"><b>06</b>Step 3 of 4</p>
+        <h2>Run on sun.</h2>
+        <p class="lead">A solar skin keeps it flying for 24 hours. No fuel, no emissions, no crew on board.</p>
+      </article>
+
+      <article class="chap chap--bottom" data-label="bring it home">
+        <p class="label"><b>07</b>Step 4 of 4</p>
+        <h2>Bring it home.</h2>
+        <p class="lead">180 kg per sortie. Then it glides back to dock on its own and goes out again.</p>
+      </article>
+
+      <article class="chap chap--left chap--cta" id="contact" data-label="contact">
+        <p class="label"><b>08</b>Pilot program</p>
+        <h2 class="cta__title">Protect the water you live next to<span class="acc">.</span></h2>
+        <p class="lead">Tell us your coastline. We will show you what a Manta fleet could clear in a single year.</p>
+        <form class="cta__form" id="ctaForm" novalidate>
+          <input type="email" name="email" placeholder="you@organisation.com" aria-label="Email address" required>
+          <button type="submit"><span id="ctaLabel">Request a briefing</span> &rarr;</button>
+        </form>
+        <p class="fine">We reply within 48 hours. This is a concept project, so nothing you type here is sent anywhere.</p>
+      </article>
+
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <span>&copy; 2026 Tidal Works. A creative concept, not a real product.</span>
+  <nav><a href="#top">Top</a><a href="#story">How it works</a><a href="#contact">Contact</a></nav>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
